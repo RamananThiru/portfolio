@@ -164,57 +164,62 @@ const About = () => {
   );
 };
 
-// Skills Component
+// Updated Compact Skills Component
 const Skills = () => {
   const skillCategories = [
     {
       title: "Languages",
+      icon: "fas fa-code",
       skills: ["Ruby", "Python", "JavaScript"]
     },
     {
       title: "Frameworks & Technologies",
+      icon: "fas fa-layer-group",
       skills: ["Ruby on Rails", "React.js", "RSpec", "Kafka", "Docker"]
     },
     {
       title: "Databases",
+      icon: "fas fa-database",
       skills: ["PostgreSQL", "DynamoDB", "Redis"]
     },
     {
       title: "Cloud & DevOps",
+      icon: "fas fa-cloud",
       skills: ["AWS Lambda", "AWS EC2", "AWS S3", "AWS SQS", "AWS RDS", "LoadBalancer", "CI/CD", "Circle CI"]
     },
     {
       title: "Tools & Monitoring",
+      icon: "fas fa-tools",
       skills: ["Postman", "Airbrake", "Datadog", "Skylight", "Git", "JIRA", "Github Copilot", "Cursor"]
     },
     {
       title: "Integrations",
+      icon: "fas fa-plug",
       skills: ["Persona", "SIFT", "Bandwidth", "Twilio", "Salesforce", "Knock", "Yardi", "Google APIs"]
     }
   ];
 
   return (
-    <section id="skills" className="section-padding bg-light">
+    <section id="skills" className="section-padding bg-light skills-section">
       <div className="container">
         <h2 className="section-title">
           <i className="fas fa-code me-3"></i>
           Technical Skills
         </h2>
         
-        <div className="row g-4">
+        <div className="skills-grid">
           {skillCategories.map((category, index) => (
-            <div key={index} className="col-lg-4 col-md-6">
-              <div className="card skill-card h-100">
-                <div className="card-body">
-                  <h3 className="h5 mb-4 pb-2 border-bottom">{category.title}</h3>
-                  <div className="skills-container">
-                    {category.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className="skill-badge">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+            <div key={index} className="skill-category">
+              <h3 className="skill-category-title">
+                <i className={category.icon}></i>
+                {category.title}
+              </h3>
+              <div className="skills-list">
+                {category.skills.map((skill, skillIndex) => (
+                  <span key={skillIndex} className="skill-item">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
@@ -231,7 +236,7 @@ const Experience = () => {
       title: "Software Engineer",
       company: "Rently",
       location: "Coimbatore, Tamil Nadu",
-      duration: "Feb 2022 - Present (Currently in Notice Period)",
+      duration: "Feb 2022 - Present",
       achievements: [
         "Partnered with stakeholders to identify business challenges and developed scalable solutions using RESTful APIs, relational databases, and Rails best practices.",
         "Led cross-team collaboration by facilitating regular syncs and knowledge-sharing to align on goals. Proactively identified and resolved complex technical issues.",
@@ -273,7 +278,7 @@ const Experience = () => {
                       <span className="duration-badge">{exp.duration}</span>
                     </div>
                   </div>
-                  
+                  <br />
                   <ul className="list-unstyled">
                     {exp.achievements.map((achievement, achievementIndex) => (
                       <li key={achievementIndex}>
@@ -378,7 +383,8 @@ const OpenSource = () => {
               <div className="flex-grow-1">
                 <h3 className="h5 mb-2">OpenFoodFoundation - mrujs to Turbo Migration</h3>
                 <p className="text-muted mb-2">
-                  <span className="status-badge">Ongoing</span>
+                  <span className="status-badge">Ongoing  </span>
+                  <span></span>
                   Currently working on replacing mrujs with turbo-based solution in the openfoodfoundation repository.
                 </p>
                 <p className="text-muted mb-3">
